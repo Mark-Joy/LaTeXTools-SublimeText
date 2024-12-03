@@ -47,7 +47,7 @@ def focus_st():
             def keep_focus():
                 external_command([sublime_command], use_texpath=False)
 
-        sublime.set_async_timeout(keep_focus, int(wait_time * 1000))
+        sublime.set_timeout_async(keep_focus, int(wait_time * 1000))
 
 
 # returns the path to the sublime executable
@@ -101,6 +101,15 @@ def get_sublime_exe():
                     get_sublime_exe.result = subl
             except:
                 pass
+
+    # prefer 'subl' over 'sublime_text', since 'subl' supports command-line-interface:
+    # https://www.sublimetext.com/docs/command_line.html
+    if not get_sublime_exe.result.endswith('subl'):
+        _, ext = os.path.splitext(get_sublime_exe.result)
+        subl = os.path.join(os.path.dirname(get_sublime_exe.result), 'subl' + ext)
+        if os.path.isfile(subl):
+            get_sublime_exe.result = subl
+            return subl
 
     if get_sublime_exe.result is None:
         print(
