@@ -27,19 +27,21 @@
                             },
                             { "caption": "-" },
                             {
-                                "command": "latextools_open_default_settings",
-                                "caption": "Settings – Default (read-only)"
-                            },
-                            {
-                                "command": "latextools_open_default_settings",
+                                "caption": "Settings - Basic",
+                                "command": "edit_settings",
                                 "args": {
-                                    "file": "LaTeXTools (Advanced).sublime-settings"
-                                },
-                                "caption": "Settings – Advanced (read-only)"
+                                    "base_file": "${packages}/LaTeXTools/LaTeXTools.sublime-settings",
+                                    "default": "{\n$0\n}\n"
+                                }
                             },
                             {
-                                "command": "latextools_open_user_settings",
-                                "caption": "Settings – User"
+                                "caption": "Settings - Advanced",
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/LaTeXTools/LaTeXTools (Advanced).sublime-settings",
+                                    "user_file": "${packages}/User/LaTeXTools.sublime-settings",
+                                    "default": "{\n$0\n}\n"
+                                }
                             },
                             {
                                 "command": "latextools_migrate",
@@ -47,52 +49,12 @@
                             },
                             { "caption": "-" },
                             {
-                                "command": "open_file",
+                                "caption": "Key Bindings",
+                                "command": "edit_settings",
                                 "args": {
-                                    "file": "${packages}/LaTeXTools/Default (OSX).sublime-keymap",
-                                    "platform": "OSX"
-                                },
-                                "caption": "Key Bindings – Default"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/LaTeXTools/Default (Linux).sublime-keymap",
-                                    "platform": "Linux"
-                                },
-                                "caption": "Key Bindings – Default"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/LaTeXTools/Default (Windows).sublime-keymap",
-                                    "platform": "Windows"
-                                },
-                                "caption": "Key Bindings – Default"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/User/Default (OSX).sublime-keymap",
-                                    "platform": "OSX"
-                                },
-                                "caption": "Key Bindings – User"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/User/Default (Linux).sublime-keymap",
-                                    "platform": "Linux"
-                                },
-                                "caption": "Key Bindings – User"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/User/Default (Windows).sublime-keymap",
-                                    "platform": "Windows"
-                                },
-                                "caption": "Key Bindings – User"
+                                    "base_file": "${packages}/LaTeXTools/Default ($platform).sublime-keymap",
+                                    "default": "[\n$0\n]\n"
+                                }
                             },
                             { "caption": "-" }
                         ]
